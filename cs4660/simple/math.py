@@ -6,5 +6,4 @@ def add(n_1, n_2):
 
 def multiply(n_1, n_2):
     """multiple returns multiplication of two numbers"""
-    """Testing this line"""
     return n_1 * n_2
