@@ -36,7 +36,24 @@ def construct_graph_from_file(graph, file_path):
     2. for each following line (from second line to last line), add them as edge to graph
     3. return the graph
     """
+
+    with open(file_path) as fp:
+        lines = fp.read().split("\n")
+        numberOfNodes =lines[:1]
+
+        print(numberOfNodes[0])
+        # for line in lines[1:]:
+        #     print(line)
+
+
+            # if len(line) > 0:
+            #     parts = list(map(int, line.split(' ')))
+            #     print(line)
+                # self.numbers.append(parts)
+
     return graph
+
+
 
 class Node(object):
     """Node represents basic unit of graph"""
@@ -98,6 +115,7 @@ class AdjacencyList(object):
         pass
 
     def add_edge(self, edge):
+        
         pass
 
     def remove_edge(self, edge):
