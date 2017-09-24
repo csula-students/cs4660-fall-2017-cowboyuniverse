@@ -1,0 +1,27 @@
+Explain with the runtime analysis on each method you have implemented in each of the representation using Big-O notation
+Answer: completed
+
+
+Answer:
+    Performance Measure - the Opponent eats all pieces or Checkmate - The king is trapped and cannot move
+    Environment - 64 squares of white and black squares with 16 black and 16 white pieces
+    Actuators - opennings and endings
+              - chess pieces has different movement type, king and pawns can move one square, horse moves in L shape, bishop moves diagonally
+                  rooks move in straight paths, ad queens can move all like all pieces except like a horse.
+    Sensors - the way the chess pieces move can be sensors because it's environment is governed by it.
+
+
+
+Answer:
+    The initial state - 32 black and white chess pieces are setup on a 64 sqaure board
+
+    chess pieces has different movement type, king and pawns can move one square, horse moves in L shape, bishop moves diagonally
+    rooks move in straight paths, ad queens can move all like all pieces except like a horse.
+
+    The goal test is the Opponent eats all pieces or Checkmate - The king is trapped and cannot move
+
+    A path cost is one per move
+
+
+Answer:
+    Chess environment type is Fully Observable, Deterministic, Discrete and Adversarial

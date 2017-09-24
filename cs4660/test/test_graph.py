@@ -56,7 +56,7 @@ class TestAdjacencyList(unittest.TestCase):
 
     def test_remove_node(self):
         self.assertEqual(True, self.graph_1.remove_node(graph.Node(6)))
-        # check if the node is removed and neighbors of 9 is also removed
+        # check if the nodisinstancee is removed and neighbors of 9 is also removed
         self.assertEqual([], self.graph_1.neighbors(graph.Node(9)))
         # Removing a node that doens't exist in the graph should return false as noop
         self.assertEqual(False, self.graph_1.remove_node(graph.Node(1234)))
