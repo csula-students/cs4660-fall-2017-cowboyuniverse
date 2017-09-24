@@ -1,4 +1,5 @@
-
+from io import open
+from operator import itemgetter
 
 def construct_graph_from_file(graph, file_path):
     nodeEdgeWeight = []
