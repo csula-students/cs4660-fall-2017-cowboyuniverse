@@ -7,7 +7,6 @@ def construct_graph_from_file(graph, file_path):
     content = f.readlines()
     size = content[:1][0].split('\n')[0]
     size = int(size)
-
     i = 0
     while i < size:
         graph.add_node(Node(i))
@@ -70,7 +69,6 @@ class Edge(object):
         return hash((self.from_node, self.to_node, self.weight))
 
 class AdjacencyList(object):
-
     def __init__(self):
         self.adjacency_list = {}
 
@@ -127,6 +125,13 @@ class AdjacencyList(object):
         else:
             self.adjacency_list[edge.from_node].remove(edge)
             return True
+
+    def distance(self, node_1, node_2):
+        for edge in self.adjacency_list[node_1]:
+            if edge.to_node == node_2:
+                return edge
+        return None
+
 
 class AdjacencyMatrix(object):
     def __init__(self):
@@ -193,6 +198,14 @@ class AdjacencyMatrix(object):
         return self.nodes[node]
 
 
+    def distance(self, node_1, node_2):
+        edgeWeight = self.adjacency_matrix[self.nodes[node_1]][self.nodes[node_2]]
+        edge = Edge(node_1, node_2, edgeWeight)
+        if edgeWeight == 0:
+            return None
+        return edge
+
+
 class ObjectOriented(object):
     def __init__(self):
         self.edges = []
@@ -245,6 +258,7 @@ class ObjectOriented(object):
             self.edges.append(edge)
             return True
 
+
     # O(n) doing a remove
     def remove_edge(self, edge):
         if edge in self.edges:
@@ -253,12 +267,22 @@ class ObjectOriented(object):
         if edge not in self.edges:
             return False
 
+    def distance(self, node_1, node_2):
+        for edge in self.edges:
+            if edge.from_node == node_1 and edge.to_node == node_2:
+                return edge
+        return None
 
 
-# ----------------NOTES ----------------------
+
+            # ----------------NOTES ----------------------
 # python -m unittest test.test_graph.TestObjectOriented
 # python -m unittest test.test_graph.TestAdjacencyList
 # python -m unittest test.test_graph.TestAdjacencyMatrix
+
+
+#python -m unittest test.test_search.TestBFS
+
 # python -m unittest discover
 
     # adding a new node "f"
